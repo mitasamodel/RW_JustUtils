@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using Verse;
 using Verse.Sound;
 
@@ -16,6 +17,20 @@ namespace RW_Utils
 		public const float resetButtonAreaHeight = buttonHeigt + gapHeight;
 		public const float rowHeight = 22f;
 
+		public static string TextFieldStruck(Rect inRect, string str, GUIStyle style = null, bool strike = false)
+		{
+			if (style == null) style = Text.CurTextFieldStyle;
+
+			string result = GUI.TextField(inRect, str ?? "", style);
+
+			if (strike)
+			{
+				GapLine(inRect.x, inRect.y + inRect.height / 2, inRect.width);
+			}
+
+			return result;
+		}
+
 		public static void DrawBox(Rect rect, Color color, int thickness = 1)
 		{
 			GUI.color = color;
@@ -24,9 +39,10 @@ namespace RW_Utils
 		}
 		public static void GapLine(float x, float y, float width)
 		{
+			var color = GUI.color;
 			GUI.color = Color.gray;
 			Widgets.DrawLineHorizontal(x, y, width);
-			GUI.color = Color.white;
+			GUI.color = color;
 		}
 		public static bool ResetButton(Rect inRect, string label)
 		{
