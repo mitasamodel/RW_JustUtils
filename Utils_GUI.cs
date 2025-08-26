@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 using Verse;
 using Verse.Sound;
 
@@ -16,6 +15,7 @@ namespace RW_Utils
 		public const float gapHeight = 12f;
 		public const float resetButtonAreaHeight = buttonHeigt + gapHeight;
 		public const float rowHeight = 22f;
+		public const float scrollWidth = 16f;
 
 		public static string TextFieldStruck(Rect inRect, string str, GUIStyle style = null, bool strike = false)
 		{

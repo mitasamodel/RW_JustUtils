@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace ResearchConnector
+namespace RW_Utils
 {
 	public static class Utils
 	{
