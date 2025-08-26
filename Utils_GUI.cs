@@ -73,14 +73,6 @@ namespace RW_Utils
 			Text.WordWrap = wrap;
 		}
 
-		public static void LabelCentered(Rect inRect, string label)
-		{
-			var oldAnchor = Text.Anchor;
-			Text.Anchor = TextAnchor.MiddleCenter;
-			Widgets.Label(inRect, label);
-			Text.Anchor = oldAnchor;
-		}
-
 		public static bool ButtonInvisibleDoubleClick(Rect rect, bool doMouseoverSound = true, int button = 0)
 		{
 			if (doMouseoverSound)
@@ -113,6 +105,29 @@ namespace RW_Utils
 				Widgets.DrawTextureFitted(rect, texture, 1f);
 				GUI.color = Color.white;
 			}
+		}
+
+		public static void LabelTooltip(Rect inRect, string label, string tooltip = null)
+		{
+			if (!tooltip.NullOrEmpty())
+			{
+				if (Mouse.IsOver(inRect))
+				{
+					Widgets.DrawHighlight(inRect);
+				}
+
+				TooltipHandler.TipRegion(inRect, tooltip);
+			}
+
+			Widgets.Label(inRect, label);
+		}
+
+		public static void LabelCentered(Rect inRect, string label)
+		{
+			var oldAnchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.Label(inRect, label);
+			Text.Anchor = oldAnchor;
 		}
 	}
 }

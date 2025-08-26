@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Listing_StandardExtensions.cs" />
+    <Compile Include="RectExtensions.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Utils_GUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
