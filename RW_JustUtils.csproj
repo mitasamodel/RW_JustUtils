@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FloatMenuPreserveOrder.cs" />
     <Compile Include="Listing_StandardExtensions.cs" />
     <Compile Include="RectExtensions.cs" />
     <Compile Include="Utils.cs" />
