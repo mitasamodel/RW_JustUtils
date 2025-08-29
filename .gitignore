@@ -1,3 +1,5 @@
 .vs/
 obj/
 bin/
+_copy_to_projects.ps1
+_run.bat

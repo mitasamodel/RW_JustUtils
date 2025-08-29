@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
 
-namespace LLPatches
+namespace RW_JustUtils
 {
 	public static class Listing_StandardExtensions
 	{
