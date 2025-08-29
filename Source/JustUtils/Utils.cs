@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace RW_Utils
+namespace RW_JustUtils
 {
 	public static class Utils
 	{

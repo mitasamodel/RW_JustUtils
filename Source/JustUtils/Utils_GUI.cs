@@ -7,7 +7,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace RW_Utils
+namespace RW_JustUtils
 {
 	public static class Utils_GUI
 	{
