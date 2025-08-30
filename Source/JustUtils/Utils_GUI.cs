@@ -25,7 +25,7 @@ namespace RW_JustUtils
 
 			if (strike)
 			{
-				GapLine(inRect.x, inRect.y + inRect.height / 2, inRect.width);
+				GapLine(inRect.x, inRect.y + inRect.height / 2f, inRect.width);
 			}
 
 			return result;
