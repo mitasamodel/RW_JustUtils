@@ -7,7 +7,7 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace RW_JustUtils
+namespace Outfitted.RW_JustUtils
 {
 	public static class Utils_GUI
 	{
@@ -25,7 +25,7 @@ namespace RW_JustUtils
 
 			if (strike)
 			{
-				GapLine(inRect.x, inRect.y + inRect.height / 2f, inRect.width);
+				GapLine(inRect.x, inRect.y + inRect.height / 2, inRect.width);
 			}
 
 			return result;
@@ -126,6 +126,13 @@ namespace RW_JustUtils
 		{
 			var oldAnchor = Text.Anchor;
 			Text.Anchor = TextAnchor.MiddleCenter;
+			Widgets.Label(inRect, label);
+			Text.Anchor = oldAnchor;
+		}
+		public static void LabelRight(Rect inRect, string label)
+		{
+			var oldAnchor = Text.Anchor;
+			Text.Anchor = TextAnchor.MiddleRight;
 			Widgets.Label(inRect, label);
 			Text.Anchor = oldAnchor;
 		}
