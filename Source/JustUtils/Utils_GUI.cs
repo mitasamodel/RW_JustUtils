@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 using Verse.Sound;
 
-namespace Outfitted.RW_JustUtils
+namespace RW_JustUtils
 {
 	public static class Utils_GUI
 	{
@@ -50,7 +51,7 @@ namespace Outfitted.RW_JustUtils
 			return Widgets.ButtonText(new Rect(inRect.x, inRect.yMax - buttonHeigt, inRect.width, buttonHeigt), label);
 		}
 
-		public static string LabeledTextField(Listing_Standard listing, string label, string value, float labelWidth = 120f, float gap = 6f)
+		public static string LabelTextField(Listing_Standard listing, string label, string value, float labelWidth = 120f, float gap = 6f)
 		{
 			Rect row = listing.GetRect(22f);
 
@@ -75,6 +76,8 @@ namespace Outfitted.RW_JustUtils
 			this Listing_Standard listing,
 			string label,
 			float value,
+			float min,
+			float max,
 			string tooltip = null,
 			float labelWidth = 120f,
 			float fieldWidth = 50f,
@@ -91,7 +94,7 @@ namespace Outfitted.RW_JustUtils
 
 			Widgets.Label(labelRect, label);
 			value = float.Parse(Widgets.TextField(fieldRect, value.ToString("F1") ?? ""));
-			value = Widgets.HorizontalSlider(sliderRect, value, -2.5f, 2.5f, true);
+			value = Widgets.HorizontalSlider(sliderRect, value, min, max, true);
 
 			if (tooltip != null)
 				TooltipHandler.TipRegion(row, tooltip);
@@ -167,12 +170,22 @@ namespace Outfitted.RW_JustUtils
 			Widgets.Label(inRect, label);
 			Text.Anchor = oldAnchor;
 		}
-		public static void LabelRight(Rect inRect, string label)
+		public static void LabelMiddleRight(Rect inRect, string label, Color textColor, GameFont font = GameFont.Small)
 		{
-			var oldAnchor = Text.Anchor;
+			var prevColor = GUI.color;
+			var prevFont = Text.Font;
+			var prevAnchor = Text.Anchor;
+			GUI.color = textColor;
+			Text.Font = font;
 			Text.Anchor = TextAnchor.MiddleRight;
 			Widgets.Label(inRect, label);
-			Text.Anchor = oldAnchor;
+			Text.Anchor = prevAnchor;
+			Text.Font = prevFont;
+			GUI.color = prevColor;
+		}
+		public static void LabelMiddleRight(Rect inRect, string label)
+		{
+			LabelMiddleRight(inRect, label, Color.white);
 		}
 	}
 }

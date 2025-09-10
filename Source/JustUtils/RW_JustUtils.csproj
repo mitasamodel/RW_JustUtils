@@ -34,6 +34,9 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>d:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="CombatExtended">
+      <HintPath>..\..\..\CombatExtended\Assemblies\CombatExtended.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -59,9 +62,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Debug.cs" />
     <Compile Include="FloatMenuPreserveOrder.cs" />
     <Compile Include="Listing_StandardExtensions.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="RectExtensions.cs" />
+    <Compile Include="StatDefOf.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Utils_GUI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

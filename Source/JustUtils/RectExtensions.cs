@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Outfitted.RW_JustUtils
+namespace RW_JustUtils
 {
 	public static class RectExtensions
 	{
