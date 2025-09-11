@@ -10,7 +10,8 @@ namespace RW_JustUtils
 	public static class Logger
 	{
 		private static bool _init = false;
-		static readonly string logFile = @Environment.CurrentDirectory + @"\Mods\DebugDebug.log";
+		static readonly string logFile = @Environment.CurrentDirectory + @"\Mods\PES.log";
+		private static int _tabLevel = 0;
 
 		public static void Init()
 		{
@@ -18,7 +19,7 @@ namespace RW_JustUtils
 			if (!_init)
 			{
 				_init = true;
-				File.WriteAllText(logFile, "[Debug] Debug start\n");    //force in debug
+				File.WriteAllText(logFile, "[PES] Debug start\n");    //force in debug
 			}
 #endif
 		}
@@ -27,7 +28,7 @@ namespace RW_JustUtils
 		{
 #if DEBUG
 			if (!_init) Init();
-			File.AppendAllText(logFile, msg + "\n");
+			File.AppendAllText(logFile, GetTabs() + msg + "\n");
 #endif
 		}
 		public static void Log(string msg)
@@ -36,6 +37,43 @@ namespace RW_JustUtils
 			if (!_init) Init();
 			File.AppendAllText(logFile, msg);
 #endif
+		}
+
+		public static void Log_Warning(string str)
+		{
+			Verse.Log.Warning($"[Preemptive Strike] " + str);
+#if DEBUG
+			LogNL(str);
+#endif
+		}
+
+		public static void Log_Error(string str)
+		{
+			Verse.Log.Error($"[Preemptive Strike] " + str);
+#if DEBUG
+			LogNL(str);
+#endif
+		}
+
+		private static string GetTabs()
+		{
+			string str = "";
+			for (int i = 0; i < _tabLevel; i++)
+				str += "\t";
+			return str;
+		}
+
+		public static void IncreaseTab()
+		{
+			_tabLevel++;
+		}
+		public static void TabDecrease()
+		{
+			_tabLevel--;
+		}
+		public static void ResetTab()
+		{
+			_tabLevel = 0;
 		}
 	}
 }
